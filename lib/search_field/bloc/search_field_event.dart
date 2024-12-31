@@ -1,6 +1,6 @@
 part of 'search_field_bloc.dart';
 
-sealed class SearchFieldEvent {}
+abstract class SearchFieldEvent {}
 
 final class ChangeText extends SearchFieldEvent {
   final String text;

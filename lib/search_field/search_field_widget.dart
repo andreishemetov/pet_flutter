@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pet_flutter/search_field/bloc/search_result.dart';
 
-class SearchFieldWidget<D, V> extends StatelessWidget {
+abstract class SearchFieldWidget<D, V> extends StatelessWidget {
   final ValueSetter<SearchResult<D, V>> onChange;
   const SearchFieldWidget({
     required this.onChange,
