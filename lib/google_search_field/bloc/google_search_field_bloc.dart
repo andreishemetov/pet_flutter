@@ -11,11 +11,11 @@ class GoogleSearchFieldBloc
 
   @override
   GoogleSearchValidationError? validate(String text) {
-    return null;
+    return text.length < 4 ? GoogleSearchValidationError.error1 : null;
   }
 
   @override
   Future<List<GooglePlace>> getObjects(String text) async {
-    return [];
+    return service.getPlaces(text);
   }
 }
