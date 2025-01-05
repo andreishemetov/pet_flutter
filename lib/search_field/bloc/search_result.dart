@@ -1,8 +1,18 @@
-abstract class SearchResult<D, V> {
+import 'package:flutter/widgets.dart';
+
+abstract class TextValue {
   String get text;
 }
 
-class TextResult<D, V> extends SearchResult<D, V> {
+abstract class SearchResult<D extends TextValue, V extends ILocalize>
+    implements TextValue {}
+
+abstract class ILocalize {
+  String localize(BuildContext context);
+}
+
+class TextResult<D extends TextValue, V extends ILocalize>
+    implements SearchResult<D, V> {
   @override
   final String text;
   final V? validationError;
@@ -13,14 +23,14 @@ class TextResult<D, V> extends SearchResult<D, V> {
   });
 }
 
-class ObjectResult<D, V> extends SearchResult<D, V> {
+class ObjectResult<D extends TextValue, V extends ILocalize>
+    implements SearchResult<D, V> {
   final D object;
 
   ObjectResult({
     required this.object,
   });
 
-  // MUST HAVE, You need to override this method in your class
   @override
-  String get text => object.toString();
+  String get text => object.text;
 }

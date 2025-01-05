@@ -1,6 +1,6 @@
 part of 'search_field_bloc.dart';
 
-class SearchFieldState<D, V> {
+class SearchFieldState<D extends TextValue, V extends ILocalize> {
   final SearchResult<D, V> data;
   final List<D> objects;
 

@@ -4,7 +4,7 @@ import 'package:pet_flutter/search_field/bloc/search_result.dart';
 part 'search_field_event.dart';
 part 'search_field_state.dart';
 
-class SearchFieldBloc<D, V>
+class SearchFieldBloc<D extends TextValue, V extends ILocalize>
     extends Bloc<SearchFieldEvent, SearchFieldState<D, V>> {
   SearchFieldBloc() : super(SearchFieldState(data: TextResult(text: ''))) {
     on<ChangeText>(onChangeText);
